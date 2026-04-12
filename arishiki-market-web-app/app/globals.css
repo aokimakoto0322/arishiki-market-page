@@ -3,6 +3,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* ライトモード：白背景に対して「濃いグレー」と「中くらいのグレー」 */
+  --dot-active: #18181b;   /* ほぼ黒 (zinc-900) */
+  --dot-inactive: #a1a1aa; /* はっきり見えるグレー (zinc-400) */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    /* ダークモード用のドット色（反転） */
+    --dot-active: #ffffff; /* 白 */
+    --dot-inactive: #3f3f46; /* 濃いグレー(zinc-700) */
+  }
 }
 
 @theme inline {
