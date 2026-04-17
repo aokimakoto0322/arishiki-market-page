@@ -72,13 +72,16 @@ export default function Home() {
       {/* セクション3：自動スライド画像セクション */}
       <SliderSection />
 
-      {/* セクション4: コンタクトフォーム（スクロールで見えてきたら表示） */}
-      <section>
+      {/* セクション4: コンタクトフォーム */}
+      <section className="py-20 px-4"> {/* 余白をしっかり確保して、スクロールに余裕を持たせます */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0, y: 10 }} // 最初は少し下にずらして透明に
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ 
+            once: true, 
+            margin: "-100px"
+          }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <ContactForm />
         </motion.div>
