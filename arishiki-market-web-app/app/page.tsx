@@ -1,13 +1,20 @@
 "use client";
 
 import SliderSection from "@/components/SliderSection";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import ContactForm from "@/components/Contact";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-zinc-50 font-sans dark:bg-black">
+      {/* Fontsの読み込みを挿入 */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+        .font-aoharu {
+          font-family: 'Yomogi', cursive;
+        }
+      `}</style>
+
       {/* セクション1：タイトル（ふわっと浮かび上がる動き） */}
       <section className="flex h-screen w-full flex-col items-center justify-center bg-white dark:bg-black px-16">
         <motion.div 
@@ -25,51 +32,42 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* セクション2：作品概要（スクロールで見えてきたら表示） */}
-      <section className="relative flex min-h-screen w-full flex-col items-center justify-center bg-zinc-50 dark:bg-zinc-950 px-8 py-20 overflow-hidden">
-        {/* 背景ドット（省略） */}
-        
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="relative z-10 max-w-6xl w-full"
-        >
-          <h2 className="text-2xl font-bold mb-12 text-center text-black dark:text-zinc-50 sm:text-3xl">
-            作品について
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* 左側：テキスト（横からスライド） */}
-            <motion.div 
-              initial={{ x: -50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="space-y-6 text-zinc-700 dark:text-zinc-300 leading-relaxed bg-white/50 dark:bg-black/20 p-3 rounded-2xl backdrop-blur-sm"
-            >
-              <p className="text-lg font-medium">
-                ここに作品のキャッチコピーや概要を入れます。
-              </p>
-              <p>
-                こだわったポイントや世界観、など
-              </p>
-            </motion.div>
+      {/* セクション2：キャッチコピー（全画面表示） */}
+      <section className="relative flex h-screen w-full flex-col items-center justify-center bg-zinc-950 overflow-hidden">
+  
+        {/* ロジックだけで描く夜空とアクセントの光 */}
+        <div className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `
+              radial-gradient(1px 1px at 20% 30%, #fff 100%, transparent),
+              radial-gradient(1px 1px at 40% 70%, #fff 100%, transparent),
+              radial-gradient(1px 1px at 60% 20%, #fff 100%, transparent),
+              radial-gradient(2px 2px at 80% 50%, #fcd34d 100%, transparent),
+              radial-gradient(2px 2px at 15% 80%, #f87171 100%, transparent),
+              radial-gradient(3px 3px at 50% 50%, rgba(255, 255, 255, 0.2) 100%, transparent)
+            `
+          }}
+        />
 
-            {/* 右側：画像（ふわっと拡大） */}
-            <motion.div 
-              whileHover={{ scale: 1.05 }} // マウスを乗せると少し大きく！
-              className="relative aspect-video w-full overflow-hidden rounded-2xl bg-white dark:bg-zinc-800 shadow-2xl border border-zinc-200 dark:border-zinc-700"
-            >
-              <div className="flex items-center justify-center h-full text-zinc-400">
-                <p>Image / Screenshot</p>
-              </div>
-            </motion.div>
-          </div>
+        {/* 動きのある光のアクセント（CSSアニメーション） */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-[20%] left-[30%] w-1 h-1 bg-yellow-200 rounded-full animate-ping" />
+          <div className="absolute bottom-[30%] right-[20%] w-1 h-1 bg-blue-200 rounded-full animate-ping" style={{ animationDelay: '2s' }} />
+        </div>
+
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className="relative z-10 text-center"
+        >
+          <h2 className="text-4xl md:text-7xl font-bold text-white tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] font-aoharu rotate-[-1deg] leading-relaxed">
+            花火は1人で見るより、<br /> 君と見たい。
+          </h2>
         </motion.div>
       </section>
 
-      {/* セクション3：自動スライド画像セクション */}
+      {/* セクション3：画像表示セクション */}
       <SliderSection />
 
       {/* セクション4: コンタクトフォーム */}
