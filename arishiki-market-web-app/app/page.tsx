@@ -68,31 +68,100 @@ export default function Home() {
       </section>
 
       {/* セクション2.5：ゲーム概要（全画面表示・上下左右中央寄せ） */}
-      <section className="flex h-screen w-full flex-col items-center justify-center bg-zinc-900 px-6 py-12 text-white">
+      <section className="flex h-screen w-full flex-col items-center justify-center bg-zinc-900 px-4 py-12 text-white">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1.0, ease: "easeOut" }}
-          className="flex flex-col items-center justify-center text-center max-w-3xl w-full"
+          className="flex flex-col items-center justify-center text-center max-w-4xl w-full"
         >
           {/* サブタイトルまたはジャンル */}
           <span className="text-sm md:text-base font-semibold tracking-widest text-yellow-400 mb-3 uppercase">
-            Game Overview
+            あらすじ
           </span>
-
-          {/* ゲームタイトル */}
-          <h2 className="text-3xl md:text-5xl font-bold tracking-wide mb-6">
-            未定
-          </h2>
 
           {/* ディバイダー（装飾線） */}
           <div className="w-12 h-1 bg-yellow-400 rounded-full mb-8"></div>
 
-          {/* ゲーム概要文 */}
-          <p className="text-base md:text-xl text-zinc-300 leading-relaxed font-light max-w-2xl">
-            Coming Soon...
+          {/* ゲーム概要文：max-w-none にして px-2 等で微調整 */}
+          <p className="text-base md:text-xl text-zinc-300 leading-relaxed font-light w-full max-w-none px-2 md:px-4">
+            とある私立高校に通う高校2年生の主人公。<br/>
+            中高一貫校で、変わり映えのない生活を送ってきた。<br/>
+            高校2年生の新学期初日。<br/>
+            夏の夜空に咲く花火を、顔の見えない誰かと共に眺める。<br/>
+            そんな幸せな夢を見るが、主人公は初日から時間ぎりぎりで登校。<br/>
+            この夢が導いた運命か、2人のヒロインに遭遇する。<br/>
+            <br/>
+            才色兼備で全校生徒の憧れ。生徒会長でもある幼馴染<br/>
+            小湊 美桜ーこみなと みおー
+            <br/>
+            <br/>
+            天真爛漫。誰からも愛される(?)ギャル系クラスメイト<br/>
+            高宮 依茉ーたかみや えまー<br/>
+            <br/>
+            変わり映えのしなかった高校生活がヒロインに出会うことで変化を見せていく。<br/>
+            高校2年生の春を過ごして、どんな関係性を気づいていくのか。<br/>
+            そして、夢で出会った顔の見えない彼女は、一体誰だったのだろうか？<br/>
+            選択をしていく果てに、一体どんな夏に辿り着くのか！？<br/>
           </p>
+        </motion.div>
+      </section>
+
+      {/* セクション2.6：ゲーム情報・配信情報（全画面表示・上下左右中央寄せ） */}
+      <section className="flex h-screen w-full flex-col items-center justify-center bg-zinc-900 px-4 py-12 text-white">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1.0, ease: "easeOut" }}
+          className="flex flex-col items-center justify-center text-center max-w-4xl w-full"
+        >
+          {/* サブタイトル */}
+          <span className="text-sm md:text-base font-semibold tracking-widest text-yellow-400 mb-3 uppercase">
+            ゲーム情報
+          </span>
+
+          {/* ディバイダー（装飾線） */}
+          <div className="w-12 h-1 bg-yellow-400 rounded-full mb-8"></div>
+
+          {/* スペック情報カード風グリッド */}
+          <div className="w-full bg-zinc-800/50 backdrop-blur border border-zinc-700/60 rounded-2xl p-6 md:p-10 text-left shadow-xl">
+            <dl className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              
+              {/* タイトル */}
+              <div className="border-b border-zinc-700/50 pb-4">
+                <dt className="text-xs md:text-sm font-semibold text-yellow-400 tracking-wider mb-1">タイトル</dt>
+                <dd className="text-lg md:text-xl font-bold text-zinc-100">タイトル未定</dd>
+              </div>
+
+              {/* ジャンル */}
+              <div className="border-b border-zinc-700/50 pb-4">
+                <dt className="text-xs md:text-sm font-semibold text-yellow-400 tracking-wider mb-1">ジャンル</dt>
+                <dd className="text-lg md:text-xl font-bold text-zinc-100">学園恋愛ADV</dd>
+              </div>
+
+              {/* 対応プラットフォーム */}
+              <div className="border-b border-zinc-700/50 pb-4">
+                <dt className="text-xs md:text-sm font-semibold text-yellow-400 tracking-wider mb-1">対応プラットフォーム</dt>
+                <dd className="text-base md:text-lg text-zinc-200">iOS / Android</dd>
+              </div>
+
+              {/* プレイ人数 / 価格 */}
+              <div className="border-b border-zinc-700/50 pb-4">
+                <dt className="text-xs md:text-sm font-semibold text-yellow-400 tracking-wider mb-1">価格 / プレイ人数</dt>
+                <dd className="text-base md:text-lg text-zinc-200">無料 / 1人</dd>
+              </div>
+
+              {/* 配信時期 / 企画・制作 */}
+              <div className="col-span-1 md:col-span-2 pt-2">
+                <dt className="text-xs md:text-sm font-semibold text-yellow-400 tracking-wider mb-1">配信予定日</dt>
+                <dd className="text-xl md:text-2xl font-extrabold text-yellow-300">未定</dd>
+              </div>
+
+            </dl>
+          </div>
+
         </motion.div>
       </section>
 
