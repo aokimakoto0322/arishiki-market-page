@@ -67,8 +67,8 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* セクション2.5：ゲーム概要（全画面表示・上下左右中央寄せ） */}
-      <section className="flex h-screen w-full flex-col items-center justify-center bg-zinc-900 px-4 py-12 text-white">
+      {/* セクション2.5：ゲーム概要（文字量に合わせた高さ・上下中央配置） */}
+      <section className="flex w-full flex-col items-center justify-center bg-zinc-900 px-4 py-16 md:py-24 text-white">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

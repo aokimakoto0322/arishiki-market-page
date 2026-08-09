@@ -46,7 +46,7 @@ export default function ContactForm() {
 
   return (
     // min-h-screen で画面いっぱいに。flex で中身を中央に配置します
-    <section className="flex min-h-screen w-full flex-col items-center justify-center bg-white dark:bg-black px-8 py-20">
+    <section className="flex min-h-screen w-full flex-col items-center justify-center bg-white dark:bg-black px-8 py-10">
       
       {/* フォーム全体をふわっと表示させるアニメーション */}
       <motion.div 
@@ -59,7 +59,7 @@ export default function ContactForm() {
           コンタクト
         </h2>
         
-        <form onSubmit={handleSubmit} className="space-y-6 bg-zinc-50 dark:bg-zinc-900/50 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl">
+        <form onSubmit={handleSubmit} className="space-y-6 bg-zinc-50 dark:bg-zinc-900/50 p-4 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium mb-2 text-zinc-600 dark:text-zinc-400">お名前</label>

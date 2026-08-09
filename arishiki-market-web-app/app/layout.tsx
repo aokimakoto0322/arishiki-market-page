@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ありしきまーけっと",
   description: "同人サークル「ありしきまーけっと」の公式サイト",
+  icons: {
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({
