@@ -1,6 +1,9 @@
 "use client";
 
 import SliderSection from "@/components/SliderSection";
+import Synopsis from "@/components/Synopsis";
+import GameInfo from "@/components/GameInfo";
+import CircleInfo from "@/components/CircleInfo";
 import { motion } from "framer-motion";
 import ContactForm from "@/components/Contact";
 
@@ -15,7 +18,7 @@ export default function Home() {
         }
       `}</style>
 
-      {/* セクション1：タイトル（ふわっと浮かび上がる動き） */}
+      {/* セクション1 */}
       <section className="flex h-screen w-full flex-col items-center justify-center bg-white dark:bg-black px-16">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +35,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* セクション2：キャッチコピー（全画面表示） */}
+      {/* セクション2 */}
       <section className="relative flex h-screen w-full flex-col items-center justify-center bg-zinc-950 overflow-hidden">
   
         {/* ロジックだけで描く夜空とアクセントの光 */}
@@ -67,146 +70,20 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* セクション2.5：ゲーム概要（文字量に合わせた高さ・上下中央配置） */}
-      <section className="flex w-full flex-col items-center justify-center bg-zinc-900 px-4 py-16 md:py-24 text-white">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1.0, ease: "easeOut" }}
-          className="flex flex-col items-center justify-center text-center max-w-4xl w-full"
-        >
-          {/* サブタイトルまたはジャンル */}
-          <span className="text-sm md:text-base font-semibold tracking-widest text-yellow-400 mb-3 uppercase">
-            あらすじ
-          </span>
+      {/* セクション3 ゲームの紹介文 */}
+      <Synopsis />
 
-          {/* ディバイダー（装飾線） */}
-          <div className="w-12 h-1 bg-yellow-400 rounded-full mb-8"></div>
+      {/* (詳細) ゲーム情報・配信情報 */}
+      <GameInfo />
 
-          {/* ゲーム概要文：max-w-none にして px-2 等で微調整 */}
-          <p className="text-base md:text-xl text-zinc-300 leading-relaxed font-light w-full max-w-none px-2 md:px-4">
-            とある私立高校に通う高校2年生の主人公。<br/>
-            中高一貫校で、変わり映えのない生活を送ってきた。<br/>
-            高校2年生の新学期初日。<br/>
-            夏の夜空に咲く花火を、顔の見えない誰かと共に眺める。<br/>
-            そんな幸せな夢を見るが、主人公は初日から時間ぎりぎりで登校。<br/>
-            この夢が導いた運命か、2人のヒロインに遭遇する。<br/>
-            <br/>
-            才色兼備で全校生徒の憧れ。生徒会長でもある幼馴染<br/>
-            小湊 美桜ーこみなと みおー
-            <br/>
-            <br/>
-            天真爛漫。誰からも愛される(?)ギャル系クラスメイト<br/>
-            高宮 依茉ーたかみや えまー<br/>
-            <br/>
-            変わり映えのしなかった高校生活がヒロインに出会うことで変化を見せていく。<br/>
-            高校2年生の春を過ごして、どんな関係性を気づいていくのか。<br/>
-            そして、夢で出会った顔の見えない彼女は、一体誰だったのだろうか？<br/>
-            選択をしていく果てに、一体どんな夏に辿り着くのか！？<br/>
-          </p>
-        </motion.div>
-      </section>
-
-      {/* セクション2.6：ゲーム情報・配信情報（全画面表示・上下左右中央寄せ） */}
-      <section className="flex h-screen w-full flex-col items-center justify-center bg-zinc-900 px-4 py-12 text-white">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1.0, ease: "easeOut" }}
-          className="flex flex-col items-center justify-center text-center max-w-4xl w-full"
-        >
-          {/* サブタイトル */}
-          <span className="text-sm md:text-base font-semibold tracking-widest text-yellow-400 mb-3 uppercase">
-            ゲーム情報
-          </span>
-
-          {/* ディバイダー（装飾線） */}
-          <div className="w-12 h-1 bg-yellow-400 rounded-full mb-8"></div>
-
-          {/* スペック情報カード風グリッド */}
-          <div className="w-full bg-zinc-800/50 backdrop-blur border border-zinc-700/60 rounded-2xl p-6 md:p-10 text-left shadow-xl">
-            <dl className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              
-              {/* タイトル */}
-              <div className="border-b border-zinc-700/50 pb-4">
-                <dt className="text-xs md:text-sm font-semibold text-yellow-400 tracking-wider mb-1">タイトル</dt>
-                <dd className="text-lg md:text-xl font-bold text-zinc-100">タイトル未定</dd>
-              </div>
-
-              {/* ジャンル */}
-              <div className="border-b border-zinc-700/50 pb-4">
-                <dt className="text-xs md:text-sm font-semibold text-yellow-400 tracking-wider mb-1">ジャンル</dt>
-                <dd className="text-lg md:text-xl font-bold text-zinc-100">学園恋愛ADV</dd>
-              </div>
-
-              {/* 対応プラットフォーム */}
-              <div className="border-b border-zinc-700/50 pb-4">
-                <dt className="text-xs md:text-sm font-semibold text-yellow-400 tracking-wider mb-1">対応プラットフォーム</dt>
-                <dd className="text-base md:text-lg text-zinc-200">iOS / Android</dd>
-              </div>
-
-              {/* プレイ人数 / 価格 */}
-              <div className="border-b border-zinc-700/50 pb-4">
-                <dt className="text-xs md:text-sm font-semibold text-yellow-400 tracking-wider mb-1">価格 / プレイ人数</dt>
-                <dd className="text-base md:text-lg text-zinc-200">無料 / 1人</dd>
-              </div>
-
-              {/* 配信時期 / 企画・制作 */}
-              <div className="col-span-1 md:col-span-2 pt-2">
-                <dt className="text-xs md:text-sm font-semibold text-yellow-400 tracking-wider mb-1">配信予定日</dt>
-                <dd className="text-xl md:text-2xl font-extrabold text-yellow-300">未定</dd>
-              </div>
-
-            </dl>
-          </div>
-
-        </motion.div>
-      </section>
-
-      {/* セクション3：画像表示セクション */}
+      {/* (詳細) 画像表示セクション */}
       {/* <SliderSection /> */}
 
-      {/* セクション4: サークル情報 */}
-      <section className="flex h-screen w-full flex-col items-center justify-center bg-zinc-100 dark:bg-zinc-800 px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl w-full"
-        >
-          <a href="https://x.com/arisk0412" target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
-            <svg className="w-20 h-20 text-black dark:text-white hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-          </a>
-          <div className="text-center md:text-left">
-            <h3 className="text-3xl font-bold text-black dark:text-white mb-4">ありしきまーけっとについて</h3>
-            <p className="text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed">
-              ありしきまーけっとは、同人サークルグループです。<br />
-              心があったまる、楽しいゲーム作りを目指しています。<br />
-              最新情報はX（旧Twitter）で発信していますので、ぜひフォローしてください！
-            </p>
-          </div>
-        </motion.div>
-      </section>
+      {/* (詳細) サークル情報 */}
+      <CircleInfo />
 
-      {/* セクション5: コンタクトフォーム */}
-      <section className="py-20 px-4"> {/* 余白をしっかり確保して、スクロールに余裕を持たせます */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }} // 最初は少し下にずらして透明に
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ 
-            once: true, 
-            margin: "-100px"
-          }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <ContactForm />
-        </motion.div>
-      </section>
+      {/* (詳細) コンタクトフォーム */}
+      <ContactForm />
       
 
       {/* セクション4：スクロールした後に表示されるアイコン群 ループ検知で止められたのでいったんコメントアウト */}
